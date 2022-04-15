@@ -9,6 +9,7 @@ export class TaskManagerService {
 
   constructor() {
     this.tasks = [];
+    this.loadTasks();
   }
 
   addTask(taskName: string) {
@@ -16,6 +17,7 @@ export class TaskManagerService {
       name: taskName,
       isCompleted: false,
     });
+    this.saveTask();
   }
 
   getTasks(): TodoTask[] {
@@ -29,7 +31,7 @@ export class TaskManagerService {
     }
   }
 
-  seveTask() {
+  saveTask() {
     let jsonString = JSON.stringify(this.tasks);
     window.localStorage.setItem('tasks', jsonString);
   }
