@@ -2,9 +2,15 @@
   <mat-list-option
     *ngFor="let task of taskManager.getTasks()"
     [(selected)]="task.isCompleted"
-    >{{ task.name }}</mat-list-option
+    >{{ task.name }}
+    <!-- リファクタリングでstyleをscssに移す -->
+    <span *ngIf="task.dueDate" style="font-size: 0.8rem"
+      >({{ task.dueDate | date: "YYYY/MM/dd" }})</span
+    ></mat-list-option
   >
 </mat-selection-list>
+
+{{ taskManager.getTasks() | json }}
 
 <button class="add-button" routerLink="add" mat-fab color="primary">
   <mat-icon>add</mat-icon>

@@ -12,8 +12,8 @@ export class TaskEditComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  addTask(taskName: string) {
-    this.taskManager.addTask(taskName);
+  addTask(taskName: string, dueDate?: string) {
+    this.taskManager.addTask(taskName, dueDate);
     this.router.navigate(['']);
   }
 }
